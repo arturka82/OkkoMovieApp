@@ -24,8 +24,8 @@ excluded:
 warning_threshold: 1
 
 line_length:
-  warning: 200
-  error: 200
+  warning: 1200
+  error: 1200
   ignores_urls: true
   ignores_comments: true
   

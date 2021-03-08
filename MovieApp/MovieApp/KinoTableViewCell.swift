@@ -13,6 +13,7 @@ final class KinoTableViewCell: UITableViewCell {
     @IBOutlet var kinoImage: UIImageView!
     @IBOutlet var kinoNameLabel: UILabel!
     @IBOutlet var kinoDescriptionLabel: UILabel!
+    @IBOutlet var dataLabel: UILabel!
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -29,6 +30,13 @@ final class KinoTableViewCell: UITableViewCell {
         let inibLocal = UINib(nibName: "KinoTableViewCell", bundle: nil)
 
         return inibLocal
+    }
+
+    public func configure(model: Movie) {
+        kinoNameLabel.text = model.name
+        kinoDescriptionLabel.text = model.description
+        kinoImage.image = UIImage(named: model.image)
+        dataLabel.text = model.date
     }
 }
 
