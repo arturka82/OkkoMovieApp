@@ -32,11 +32,17 @@ final class KinoTableViewCell: UITableViewCell {
         return inibLocal
     }
 
+    var bigDickCache: [String: UIImage] = [:]
+
     public func configure(model: Movie) {
-        kinoNameLabel.text = model.name
-        kinoDescriptionLabel.text = model.description
-        kinoImage.image = UIImage(named: model.image)
-        dataLabel.text = model.date
+        kinoNameLabel.text = model.originalTitle
+        kinoDescriptionLabel.text = model.overview
+        dataLabel.text = model.releaseDate
+
+//        guard let unrapPosterImage = model.posterPath else { return }
+
+        kinoImage.image = nil
+        
     }
 }
 
