@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		91049D3D25F8941100D0709A /* MovieRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91049D3C25F8941100D0709A /* MovieRequest.swift */; };
 		9133F86925F6A08000D07DA0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9133F86825F6A08000D07DA0 /* AppDelegate.swift */; };
 		9133F86B25F6A08000D07DA0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9133F86A25F6A08000D07DA0 /* SceneDelegate.swift */; };
 		9133F86D25F6A08000D07DA0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9133F86C25F6A08000D07DA0 /* ViewController.swift */; };
@@ -19,6 +20,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		91049D3C25F8941100D0709A /* MovieRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieRequest.swift; sourceTree = "<group>"; };
 		9133F86525F6A08000D07DA0 /* MovieApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MovieApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9133F86825F6A08000D07DA0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9133F86A25F6A08000D07DA0 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -66,6 +68,7 @@
 				9133F86A25F6A08000D07DA0 /* SceneDelegate.swift */,
 				9133F86C25F6A08000D07DA0 /* ViewController.swift */,
 				9133F88625F6A69500D07DA0 /* Model.swift */,
+				91049D3C25F8941100D0709A /* MovieRequest.swift */,
 				9133F87D25F6A15500D07DA0 /* KinoTableViewCell.swift */,
 				9133F86E25F6A08000D07DA0 /* Main.storyboard */,
 				9133F87125F6A08100D07DA0 /* Assets.xcassets */,
@@ -86,8 +89,8 @@
 				9133F86125F6A08000D07DA0 /* Sources */,
 				9133F86225F6A08000D07DA0 /* Frameworks */,
 				9133F86325F6A08000D07DA0 /* Resources */,
-				9133F88325F6A20500D07DA0 /* ShellScript */,
 				9133F88425F6A21800D07DA0 /* ShellScript */,
+				9133F88325F6A20500D07DA0 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -190,6 +193,7 @@
 				9133F86D25F6A08000D07DA0 /* ViewController.swift in Sources */,
 				9133F86925F6A08000D07DA0 /* AppDelegate.swift in Sources */,
 				9133F87E25F6A15500D07DA0 /* KinoTableViewCell.swift in Sources */,
+				91049D3D25F8941100D0709A /* MovieRequest.swift in Sources */,
 				9133F86B25F6A08000D07DA0 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
