@@ -11,6 +11,8 @@ import UIKit
 class ViewController: UIViewController {
     @IBOutlet var tableView: UITableView!
 
+    let qunemTigran = KinoTableViewCell()
+
     private var movieRequest: MovieRequest?
 
     override func viewDidLoad() {
@@ -23,6 +25,8 @@ class ViewController: UIViewController {
     }
 
     func fetchData() {
+        
+        
         let jsonUrlString =
             "https://api.themoviedb.org/3/movie/popular?api_key=9edf21c98a9d71103c308248693cb1eb&language=en-US&page=1"
 
@@ -54,10 +58,17 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
         else { return UITableViewCell() }
         guard let movie = movieRequest?.movieArray else { return UITableViewCell() }
         cell.configure(model: movie[indexPath.row])
-        cell.loadImage(model: movie[indexPath.row])
+//        cell.loadImage(model: movie[indexPath.row])
+
+        print(cell.kinoImage.image)
+
         cell.selectionStyle = .none
 
         return cell
+    }
+
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        performSegue(withIdentifier: "detailSegue", sender: self)
     }
 
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
