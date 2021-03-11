@@ -42,7 +42,6 @@ final class KinoTableViewCell: UITableViewCell {
 //        guard let unrapPosterImage = model.posterPath else { return }
 
         kinoImage.image = nil
-        
     }
 }
 
