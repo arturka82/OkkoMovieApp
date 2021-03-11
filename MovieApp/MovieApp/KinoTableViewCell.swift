@@ -43,6 +43,20 @@ final class KinoTableViewCell: UITableViewCell {
 
         kinoImage.image = nil
     }
+
+    func loadImage(model: Movie) {
+        let imageService = ImageServise()
+        let proxy = Proxy(service: imageService)
+        guard let unrapImagePoster = model.posterPath else { return }
+        guard let qunemImage = URL(string: "https://image.tmdb.org/t/p/w500\(unrapImagePoster)") else { return }
+
+        proxy.loadImage(url: qunemImage) { [weak self] data, _, error in
+            guard let self = self, let data = data, error == nil else { return }
+            DispatchQueue.main.async {
+                self.kinoImage.image = UIImage(data: data)
+            }
+        }
+    }
 }
 
 extension KinoTableViewCell: UITableViewDataSource, UITableViewDelegate {
