@@ -7,9 +7,10 @@
 
 import UIKit
 
+/// KinoTableViewCell
 final class KinoTableViewCell: UITableViewCell {
-    static var id = "KinoTableViewCell"
 
+    // MARK: - IBOutlet
     @IBOutlet var backgroundUiview: UIView!
     @IBOutlet var backgroundVoteVview: UIView!
 
@@ -18,6 +19,9 @@ final class KinoTableViewCell: UITableViewCell {
     @IBOutlet var kinoNameLabel: UILabel!
     @IBOutlet var kinoDescriptionLabel: UILabel!
     @IBOutlet var dataLabel: UILabel!
+
+    // MARK: - Public Properties
+    static var id = "KinoTableViewCell"
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -33,7 +37,8 @@ final class KinoTableViewCell: UITableViewCell {
         backgroundVoteVview.layer.shadowOffset = .zero
         backgroundVoteVview.layer.shadowRadius = 5
     }
-
+    
+    // MARK: - Public methods
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
         // Configure the view for the selected state
@@ -45,7 +50,6 @@ final class KinoTableViewCell: UITableViewCell {
         return inibLocal
     }
 
-    var bigDickCache: [String: UIImage] = [:]
 
     public func configure(model: Movie) {
         loadImage(model: model)
@@ -56,7 +60,8 @@ final class KinoTableViewCell: UITableViewCell {
         voteLabel.text = String(model.voteAverage ?? 0)
     }
 
-    func loadImage(model: Movie) {
+    // MARK: - Private Methods
+    private func loadImage(model: Movie) {
         let imageService = ImageServise()
         let proxy = Proxy(service: imageService)
         guard let unrapImagePoster = model.posterPath else { return }

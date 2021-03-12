@@ -8,7 +8,8 @@
 import Foundation
 
 /// Proxy Class
-class Proxy: LoadServiceProtocol {
+final class Proxy: LoadServiceProtocol {
+    
     private var service: LoadServiceProtocol
     private var cacheDateDict: [String: Data] = [:]
 

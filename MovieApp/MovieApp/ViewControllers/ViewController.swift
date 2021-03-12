@@ -8,25 +8,35 @@
 import UIKit
 
 /// ViewController
-class ViewController: UIViewController {
+final class ViewController: UIViewController {
+    // MARK: - IBOutlet
+
     @IBOutlet var tableView: UITableView!
 
-    let qunemTigran = KinoTableViewCell()
+    // MARK: - Private Properties
 
+    private let qunemTigran = KinoTableViewCell()
     private var movieRequest: MovieRequest?
-
-    var vremenyQunem = UIImageView()
+    private var vremenyQunem = UIImageView()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.delegate = self
         tableView.dataSource = self
-//        createMovie()
         fetchData()
         tableView.register(KinoTableViewCell.nib(), forCellReuseIdentifier: KinoTableViewCell.id)
     }
 
-    func fetchData() {
+    // MARK: - Public methods
+
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if case let detailVC as DetailViewController = segue.destination {
+            detailVC.kinoImage.image = vremenyQunem.image
+        }
+    }
+
+    // MARK: - Private Methods
+    private func fetchData() {
         let jsonUrlString =
             "https://api.themoviedb.org/3/movie/popular?api_key=9edf21c98a9d71103c308248693cb1eb&language=en-US&page=1"
 
@@ -42,17 +52,11 @@ class ViewController: UIViewController {
             } catch {
                 print("ERROR PZDS", error)
             }
-
         }.resume()
-    }
-
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if case let detailVC as DetailViewController = segue.destination {
-            detailVC.kinoImage.image = vremenyQunem.image
-        }
     }
 }
 
+// MARK: - Extension UITableViewDelegate, UITableViewDataSource
 extension ViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         movieRequest?.movieArray.count ?? 0
@@ -82,10 +86,6 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
         detailVC.model = movie[row]
 
         navigationController?.pushViewController(detailVC, animated: true)
-
-//        performSegue(withIdentifier: "detailSegue", sender: nil)
-        //        let vc = DetailViewController()
-        //        vc.configure(model: movie[indexPath.row])
     }
 
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

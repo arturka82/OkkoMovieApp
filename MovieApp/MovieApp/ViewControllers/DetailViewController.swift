@@ -8,11 +8,8 @@
 import UIKit
 
 /// DetailViewController
-class DetailViewController: UIViewController {
-    var movieRequest: MovieRequest?
-
-    var model: Movie!
-
+final class DetailViewController: UIViewController {
+    // MARK: - IBOutlet
     @IBOutlet var backgroundVoteVview: UIView!
     @IBOutlet var dataBackgroundVoteVview: UIView!
 
@@ -21,6 +18,12 @@ class DetailViewController: UIViewController {
     @IBOutlet var kinoNameLabel: UILabel!
     @IBOutlet var kinoDescriptionLabel: UILabel!
     @IBOutlet var dataLabel: UILabel!
+
+    // MARK: - Public Properties
+    var model: Movie!
+
+    // MARK: - Private Properties
+    private var movieRequest: MovieRequest?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,7 +42,19 @@ class DetailViewController: UIViewController {
         navigationController?.navigationBar.barTintColor = .systemGray
     }
 
-    func loadImage(model: Movie) {
+    // MARK: - Public methods
+
+    public func configure() {
+        loadImage(model: model)
+
+        kinoNameLabel.text = model?.originalTitle
+        kinoDescriptionLabel.text = model?.overview
+        dataLabel.text = model.releaseDate
+        voteLabel.text = String(model?.voteAverage ?? 0)
+    }
+
+    // MARK: - Private Methods
+    private func loadImage(model: Movie) {
         let imageService = ImageServise()
         let proxy = Proxy(service: imageService)
         guard let unrapImagePoster = model.posterPath else { return }
@@ -53,14 +68,5 @@ class DetailViewController: UIViewController {
                 self.kinoImage.image = UIImage(data: data)
             }
         }
-    }
-
-    public func configure() {
-        loadImage(model: model)
-
-        kinoNameLabel.text = model?.originalTitle
-        kinoDescriptionLabel.text = model?.overview
-        dataLabel.text = model.releaseDate
-        voteLabel.text = String(model?.voteAverage ?? 0)
     }
 }
