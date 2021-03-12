@@ -10,8 +10,10 @@ import UIKit
 final class KinoTableViewCell: UITableViewCell {
     static var id = "KinoTableViewCell"
 
+    private var cacheDict: [] =
+    
     @IBOutlet var backgroundUiview: UIView!
-
+    
     @IBOutlet var kinoImage: UIImageView!
     @IBOutlet var kinoNameLabel: UILabel!
     @IBOutlet var kinoDescriptionLabel: UILabel!
