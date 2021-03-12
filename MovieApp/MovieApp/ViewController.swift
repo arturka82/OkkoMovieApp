@@ -15,6 +15,8 @@ class ViewController: UIViewController {
 
     private var movieRequest: MovieRequest?
 
+    var vremenyQunem = UIImageView()
+
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.delegate = self
@@ -25,8 +27,6 @@ class ViewController: UIViewController {
     }
 
     func fetchData() {
-        
-        
         let jsonUrlString =
             "https://api.themoviedb.org/3/movie/popular?api_key=9edf21c98a9d71103c308248693cb1eb&language=en-US&page=1"
 
@@ -45,6 +45,12 @@ class ViewController: UIViewController {
 
         }.resume()
     }
+
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if case let detailVC as DetailViewController = segue.destination {
+            detailVC.kinoImage.image = vremenyQunem.image
+        }
+    }
 }
 
 extension ViewController: UITableViewDelegate, UITableViewDataSource {
@@ -58,9 +64,6 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
         else { return UITableViewCell() }
         guard let movie = movieRequest?.movieArray else { return UITableViewCell() }
         cell.configure(model: movie[indexPath.row])
-//        cell.loadImage(model: movie[indexPath.row])
-
-        print(cell.kinoImage.image)
 
         cell.selectionStyle = .none
 
@@ -68,7 +71,21 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        performSegue(withIdentifier: "detailSegue", sender: self)
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        guard let detailVC = storyboard
+            .instantiateViewController(withIdentifier: "DetailViewController") as? DetailViewController
+        else { return }
+        guard let row = tableView.indexPathForSelectedRow?.row else { return }
+
+        guard let movie = movieRequest?.movieArray else { return }
+
+        detailVC.model = movie[row]
+
+        navigationController?.pushViewController(detailVC, animated: true)
+
+//        performSegue(withIdentifier: "detailSegue", sender: nil)
+        //        let vc = DetailViewController()
+        //        vc.configure(model: movie[indexPath.row])
     }
 
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

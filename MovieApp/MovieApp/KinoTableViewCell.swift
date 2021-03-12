@@ -10,10 +10,10 @@ import UIKit
 final class KinoTableViewCell: UITableViewCell {
     static var id = "KinoTableViewCell"
 
-    private var cacheDict: [] =
-    
     @IBOutlet var backgroundUiview: UIView!
-    
+    @IBOutlet var backgroundVoteVview: UIView!
+
+    @IBOutlet var voteLabel: UILabel!
     @IBOutlet var kinoImage: UIImageView!
     @IBOutlet var kinoNameLabel: UILabel!
     @IBOutlet var kinoDescriptionLabel: UILabel!
@@ -27,6 +27,11 @@ final class KinoTableViewCell: UITableViewCell {
         backgroundUiview.layer.shadowOffset = .zero
         backgroundUiview.layer.shadowRadius = 10
         backgroundUiview.layer.cornerRadius = 10
+
+        backgroundVoteVview.layer.shadowColor = UIColor.red.cgColor
+        backgroundVoteVview.layer.shadowOpacity = 1
+        backgroundVoteVview.layer.shadowOffset = .zero
+        backgroundVoteVview.layer.shadowRadius = 5
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -48,6 +53,7 @@ final class KinoTableViewCell: UITableViewCell {
         kinoNameLabel.text = model.originalTitle
         kinoDescriptionLabel.text = model.overview
         dataLabel.text = model.releaseDate
+        voteLabel.text = String(model.voteAverage ?? 0)
     }
 
     func loadImage(model: Movie) {

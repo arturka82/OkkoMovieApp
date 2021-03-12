@@ -7,23 +7,45 @@
 
 import UIKit
 
+/// DetailViewController
 class DetailViewController: UIViewController {
+    var movieRequest: MovieRequest?
+
+    var model: Movie!
+
+    @IBOutlet var voteLabel: UILabel!
+    @IBOutlet var kinoImage: UIImageView!
+    @IBOutlet var kinoNameLabel: UILabel!
+    @IBOutlet var kinoDescriptionLabel: UILabel!
+    @IBOutlet var dataLabel: UILabel!
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        configure()
     }
-    
 
-    /*
-    // MARK: - Navigation
+    func loadImage(model: Movie) {
+        let imageService = ImageServise()
+        let proxy = Proxy(service: imageService)
+        guard let unrapImagePoster = model.posterPath else { return }
+        print(unrapImagePoster, self)
+        guard let qunemImage = URL(string: "https://image.tmdb.org/t/p/w500\(unrapImagePoster)") else { return }
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        proxy.loadImage(url: qunemImage) { [weak self] data, _, error in
+            guard let self = self, let data = data, error == nil else { return }
+            DispatchQueue.main.async {
+                self.kinoImage.image = nil
+                self.kinoImage.image = UIImage(data: data)
+            }
+        }
     }
-    */
 
+    public func configure() {
+        loadImage(model: model)
+
+        kinoNameLabel.text = model?.originalTitle
+        kinoDescriptionLabel.text = model?.overview
+//        dataLabel.text = model?.releaseDate
+//        voteLabel.text = String(model?.voteAverage ?? 0)
+    }
 }

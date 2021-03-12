@@ -20,6 +20,7 @@
 		9137DB0425FA3094001457AA /* LoadServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9137DB0325FA3094001457AA /* LoadServiceProtocol.swift */; };
 		9137DB0725FA30FE001457AA /* ImageServise.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9137DB0625FA30FE001457AA /* ImageServise.swift */; };
 		9137DB0C25FA3189001457AA /* Proxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9137DB0B25FA3189001457AA /* Proxy.swift */; };
+		9137DB3525FB6AB9001457AA /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9137DB3425FB6AB9001457AA /* DetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +39,7 @@
 		9137DB0325FA3094001457AA /* LoadServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadServiceProtocol.swift; sourceTree = "<group>"; };
 		9137DB0625FA30FE001457AA /* ImageServise.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageServise.swift; sourceTree = "<group>"; };
 		9137DB0B25FA3189001457AA /* Proxy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Proxy.swift; sourceTree = "<group>"; };
+		9137DB3425FB6AB9001457AA /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,6 +75,7 @@
 				9133F86825F6A08000D07DA0 /* AppDelegate.swift */,
 				9133F86A25F6A08000D07DA0 /* SceneDelegate.swift */,
 				9133F86C25F6A08000D07DA0 /* ViewController.swift */,
+				9137DB3425FB6AB9001457AA /* DetailViewController.swift */,
 				9137DB0B25FA3189001457AA /* Proxy.swift */,
 				9137DB0925FA3171001457AA /* ImageServise */,
 				9133F88625F6A69500D07DA0 /* Model.swift */,
@@ -213,6 +216,7 @@
 				9133F86925F6A08000D07DA0 /* AppDelegate.swift in Sources */,
 				9137DB0425FA3094001457AA /* LoadServiceProtocol.swift in Sources */,
 				9133F87E25F6A15500D07DA0 /* KinoTableViewCell.swift in Sources */,
+				9137DB3525FB6AB9001457AA /* DetailViewController.swift in Sources */,
 				91049D3D25F8941100D0709A /* MovieRequest.swift in Sources */,
 				9133F86B25F6A08000D07DA0 /* SceneDelegate.swift in Sources */,
 			);

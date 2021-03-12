@@ -20,6 +20,7 @@
 		9137DB2625FAAFCA001457AA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9137DB2925FAAFCA001457AA /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		9137DB2B25FAAFCA001457AA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9137DB3225FAC0B5001457AA /* JenyaProverka.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = JenyaProverka.entitlements; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,6 +53,7 @@
 		9137DB2125FAAFC7001457AA /* JenyaProverka */ = {
 			isa = PBXGroup;
 			children = (
+				9137DB3225FAC0B5001457AA /* JenyaProverka.entitlements */,
 				9137DB2225FAAFC7001457AA /* JenyaProverkaApp.swift */,
 				9137DB2425FAAFC7001457AA /* ContentView.swift */,
 				9137DB2625FAAFCA001457AA /* Assets.xcassets */,
@@ -267,6 +269,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = JenyaProverka/JenyaProverka.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"JenyaProverka/Preview Content\"";
 				DEVELOPMENT_TEAM = 64DC849HA5;
@@ -279,6 +282,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = arturkaGedakyan.com.JenyaProverka;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTS_MACCATALYST = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -289,6 +293,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = JenyaProverka/JenyaProverka.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"JenyaProverka/Preview Content\"";
 				DEVELOPMENT_TEAM = 64DC849HA5;
@@ -301,6 +306,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = arturkaGedakyan.com.JenyaProverka;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTS_MACCATALYST = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
